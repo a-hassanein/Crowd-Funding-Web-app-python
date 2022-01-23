@@ -118,6 +118,39 @@ def projectlist():
             print((prg.strip()).split(":"))
 
 
+def deleteProject():
+    projectdel = input("Please enter project name: ")
+    try:
+        with open('projects.txt', 'r') as delproj:
+            lines = delproj.readlines()
+
+            with open('projects.txt', 'w') as fw:
+                for line in lines:
+                    delcol=line.split(":")
+                    if delcol[0].find(projectdel) == -1:
+                        fw.write(line)
+        print("Deleted")
+
+    except:
+        print("Oops! something error")
+
+
+def searchProject():
+    projectsearch = input("Please enter project name or Start date: ")
+
+    try:
+        with open('projects2.txt', 'r') as searchproj:
+            lines = searchproj.readlines()
+            for line in lines:
+                searchcol = line.split(":")
+
+                if searchcol[0].find(projectsearch) != -1:
+                    print(line)
+                elif searchcol[3].find(projectsearch) != -1:
+                    print(line)
+
+    except:
+        print("Oops! something error")
 
 
 # Main menu
@@ -141,9 +174,9 @@ def project_menu():
         elif select_menu == "2":
             projectlist()
         elif select_menu == "3":
-            pass
+            searchProject()
         elif select_menu == "4":
-            pass
+            deleteProject()
         else:
             print("Error input ,Pleas Enter 1 for display current projects and 2 for search project and 3 to delete project: ")
 

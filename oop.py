@@ -3,6 +3,8 @@ import re
 from projectlist import ProjectList
 from register import Register
 from project import Projects
+from delete import DeleteProject
+from search import SearchProject
 
 
 # redister function
@@ -50,6 +52,12 @@ class Login:
 
 loginform = Login()
 
+# delete project
+deletecall = DeleteProject()
+
+# search project
+searchcall = SearchProject()
+
 # Main menu
 class Main_menu:
     def choose_menu(self):
@@ -78,9 +86,9 @@ class Project_menu:
             elif select_menu == "2":
                 projectlistcall.projectlist()
             elif select_menu == "3":
-                pass
+                searchcall.searchProject()
             elif select_menu == "4":
-                pass
+                deletecall.deleteProject()
             else:
                 print("Error input ,Pleas Enter 1 for display current projects and 2 for search project and 3 to delete project: ")
 
