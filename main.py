@@ -94,13 +94,11 @@ def projects():
         endday = int(input('Enter a day'))
         enddate = datetime.date(endyear, endmonth, endday)
 
-    # appand
-
+    # append
     project = [title, details, total_target, str(startdate), str(enddate)]
     print(project)
     projects.write(":".join(project) + "\n")
-    # date = enddate - startdate
-    # print(date.days);
+
 
 
 
@@ -131,8 +129,6 @@ def choose_menu():
             login()
         elif select_menu == "2":
             register()
-        elif select_menu == "3":
-            projectlist()
         else:
             print("Error input ,Pleas Enter 1 for login or 2 for register")
 
